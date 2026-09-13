@@ -1,1 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌈 Elegant · 100 pages</title>
+  <!-- Google Fonts for a refined, modern feel -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for subtle icons (optional, but elegant) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at 10% 20%, #f7f0ff 0%, #e8e0f5 40%, #d4c9f0 80%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 3rem 1.5rem;
+      color: #1e1b2e;
+    }
+
+    /* main card – glassmorphism + soft shadow */
+    .catalog {
+      max-width: 1280px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 3.5rem;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25),
+                  inset 0 1px 2px rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+
+    /* heading with gradient + playful accent */
+    .header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #3b1e6b, #8b5cf6, #ec4899, #f59e0b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+      padding-bottom: 0.5rem;
+      text-shadow: 0 4px 12px rgba(139, 92, 246, 0.2);
+    }
+
+    .header i {
+      font-size: 2.5rem;
+      margin: 0 0.5rem;
+      color: #a78bfa;
+      filter: drop-shadow(0 4px 6px rgba(139, 92, 246, 0.3));
+      vertical-align: middle;
+    }
+
+    .subhead {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #3d2b5a;
+      background: rgba(255, 255, 255, 0.6);
+      display: inline-block;
+      padding: 0.4rem 1.8rem;
+      border-radius: 40px;
+      margin-top: 0.5rem;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+    }
+
+    /* GRID — 100 links, responsive and colorful */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 1rem;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    /* each link is a soft, colorful tile */
+    .grid a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border: 1.5px solid rgba(255, 255, 255, 0.9);
+      color: #1e1b2e;
+      box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle gradient overlay on hover – elegant shine */
+    .grid a::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 70%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .grid a:hover::after {
+      opacity: 1;
+    }
+
+    .grid a:hover {
+      transform: scale(1.06) translateY(-3px);
+      border-color: rgba(255, 255, 255, 1);
+      box-shadow: 0 20px 25px -8px rgba(90, 50, 150, 0.3),
+                  0 0 0 2px rgba(255, 255, 255, 0.6) inset;
+    }
+
+    /* each tile gets a unique pastel / vibrant hue via nth-child 
+       we keep it colorful yet harmonious */
+    .grid a:nth-child(10n+1) {
+      background: linear-gradient(145deg, #fef3f0, #ffe4dd);
+      color: #b3402c;
+    }
+    .grid a:nth-child(10n+2) {
+      background: linear-gradient(145deg, #f0f7ff, #d9e9ff);
+      color: #1e4a7a;
+    }
+    .grid a:nth-child(10n+3) {
+      background: linear-gradient(145deg, #f5f0ff, #e6dbff);
+      color: #4b2e83;
+    }
+    .grid a:nth-child(10n+4) {
+      background: linear-gradient(145deg, #f0faf0, #d6f0d6);
+      color: #1f6e3c;
+    }
+    .grid a:nth-child(10n+5) {
+      background: linear-gradient(145deg, #fff5e6, #ffe6cc);
+      color: #a6541a;
+    }
+    .grid a:nth-child(10n+6) {
+      background: linear-gradient(145deg, #fdf0f8, #f9d9eb);
+      color: #9e2a5e;
+    }
+    .grid a:nth-child(10n+7) {
+      background: linear-gradient(145deg, #eef6fb, #cde4f0);
+      color: #195a7a;
+    }
+    .grid a:nth-child(10n+8) {
+      background: linear-gradient(145deg, #f8f0fc, #ecd7fa);
+      color: #5f2d8c;
+    }
+    .grid a:nth-child(10n+9) {
+      background: linear-gradient(145deg, #fcf2e8, #f8dfc9);
+      color: #8e4d1e;
+    }
+    .grid a:nth-child(10n+10) {
+      background: linear-gradient(145deg, #ecfdf5, #c9f0e0);
+      color: #0a6245;
+    }
+
+    /* additional variation for the first few to add sparkle */
+    .grid a:nth-child(1) { background: linear-gradient(145deg, #ffe6f0, #ffcce6); color: #a1306b; }
+    .grid a:nth-child(2) { background: linear-gradient(145deg, #e0f2fe, #b8e0fc); color: #0369a1; }
+    .grid a:nth-child(3) { background: linear-gradient(145deg, #f3e8ff, #e2d1fc); color: #6b21a8; }
+    .grid a:nth-child(4) { background: linear-gradient(145deg, #fef9c3, #fde68a); color: #854d0e; }
+    .grid a:nth-child(5) { background: linear-gradient(145deg, #dcfce7, #bbf7d0); color: #166534; }
+    .grid a:nth-child(6) { background: linear-gradient(145deg, #ffedd5, #fed7aa); color: #9a3412; }
+    .grid a:nth-child(7) { background: linear-gradient(145deg, #fce7f3, #fbcfe8); color: #9d174d; }
+    .grid a:nth-child(8) { background: linear-gradient(145deg, #e0e7ff, #c7d2fe); color: #3730a3; }
+    .grid a:nth-child(9) { background: linear-gradient(145deg, #ccfbf1, #99f6e4); color: #115e59; }
+
+    /* optional: little number style */
+    .grid a span {
+      font-size: 1.2rem;
+      font-weight: 700;
+      opacity: 0.9;
+      text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+      z-index: 2;
+    }
+
+    /* footer / meta line */
+    .footer-note {
+      margin-top: 2.8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: #463a5e;
+      background: rgba(255, 255, 255, 0.5);
+      padding: 0.75rem 2rem;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.3px;
+    }
+
+    .footer-note i {
+      color: #8b5cf6;
+      margin: 0 0.3rem;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 680px) {
+      body { padding: 1.5rem 0.8rem; }
+      .catalog { padding: 2rem 1.2rem; border-radius: 2.5rem; }
+      .header h1 { font-size: 2rem; }
+      .header i { font-size: 1.8rem; }
+      .subhead { font-size: 1rem; }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 0.7rem; }
+      .grid a { border-radius: 18px; font-size: 1rem; }
+    }
+
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 0.6rem; }
+    }
+
+    /* accessibility: focus outline */
+    .grid a:focus-visible {
+      outline: 3px solid #8b5cf6;
+      outline-offset: 2px;
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+  <div class="catalog">
+    <div class="header">
+      <h1>
+        <i class="fas fa-star"></i>
+        1 · 100
+        <i class="fas fa-star"></i>
+      </h1>
+      <div class="subhead">
+        <i class="fas fa-arrow-right"></i> 
+        elegant collection 
+        <i class="fas fa-arrow-left"></i>
+      </div>
+    </div>
+
+    <!-- 100 links, each pointing to 1.html ... 100.html -->
+    <div class="grid">
+      <a href="1.html"><span>1</span></a>
+      <a href="2.html"><span>2</span></a>
+      <a href="3.html"><span>3</span></a>
+      <a href="4.html"><span>4</span></a>
+      <a href="5.html"><span>5</span></a>
+      <a href="6.html"><span>6</span></a>
+      <a href="7.html"><span>7</span></a>
+      <a href="8.html"><span>8</span></a>
+      <a href="9.html"><span>9</span></a>
+      <a href="10.html"><span>10</span></a>
+      <a href="11.html"><span>11</span></a>
+      <a href="12.html"><span>12</span></a>
+      <a href="13.html"><span>13</span></a>
+      <a href="14.html"><span>14</span></a>
+      <a href="15.html"><span>15</span></a>
+      <a href="16.html"><span>16</span></a>
+      <a href="17.html"><span>17</span></a>
+      <a href="18.html"><span>18</span></a>
+      <a href="19.html"><span>19</span></a>
+      <a href="20.html"><span>20</span></a>
+      <a href="21.html"><span>21</span></a>
+      <a href="22.html"><span>22</span></a>
+      <a href="23.html"><span>23</span></a>
+      <a href="24.html"><span>24</span></a>
+      <a href="25.html"><span>25</span></a>
+      <a href="26.html"><span>26</span></a>
+      <a href="27.html"><span>27</span></a>
+      <a href="28.html"><span>28</span></a>
+      <a href="29.html"><span>29</span></a>
+      <a href="30.html"><span>30</span></a>
+      <a href="31.html"><span>31</span></a>
+      <a href="32.html"><span>32</span></a>
+      <a href="33.html"><span>33</span></a>
+      <a href="34.html"><span>34</span></a>
+      <a href="35.html"><span>35</span></a>
+      <a href="36.html"><span>36</span></a>
+      <a href="37.html"><span>37</span></a>
+      <a href="38.html"><span>38</span></a>
+      <a href="39.html"><span>39</span></a>
+      <a href="40.html"><span>40</span></a>
+      <a href="41.html"><span>41</span></a>
+      <a href="42.html"><span>42</span></a>
+      <a href="43.html"><span>43</span></a>
+      <a href="44.html"><span>44</span></a>
+      <a href="45.html"><span>45</span></a>
+      <a href="46.html"><span>46</span></a>
+      <a href="47.html"><span>47</span></a>
+      <a href="48.html"><span>48</span></a>
+      <a href="49.html"><span>49</span></a>
+      <a href="50.html"><span>50</span></a>
+      <a href="51.html"><span>51</span></a>
+      <a href="52.html"><span>52</span></a>
+      <a href="53.html"><span>53</span></a>
+      <a href="54.html"><span>54</span></a>
+      <a href="55.html"><span>55</span></a>
+      <a href="56.html"><span>56</span></a>
+      <a href="57.html"><span>57</span></a>
+      <a href="58.html"><span>58</span></a>
+      <a href="59.html"><span>59</span></a>
+      <a href="60.html"><span>60</span></a>
+      <a href="61.html"><span>61</span></a>
+      <a href="62.html"><span>62</span></a>
+      <a href="63.html"><span>63</span></a>
+      <a href="64.html"><span>64</span></a>
+      <a href="65.html"><span>65</span></a>
+      <a href="66.html"><span>66</span></a>
+      <a href="67.html"><span>67</span></a>
+      <a href="68.html"><span>68</span></a>
+      <a href="69.html"><span>69</span></a>
+      <a href="70.html"><span>70</span></a>
+      <a href="71.html"><span>71</span></a>
+      <a href="72.html"><span>72</span></a>
+      <a href="73.html"><span>73</span></a>
+      <a href="74.html"><span>74</span></a>
+      <a href="75.html"><span>75</span></a>
+      <a href="76.html"><span>76</span></a>
+      <a href="77.html"><span>77</span></a>
+      <a href="78.html"><span>78</span></a>
+      <a href="79.html"><span>79</span></a>
+      <a href="80.html"><span>80</span></a>
+      <a href="81.html"><span>81</span></a>
+      <a href="82.html"><span>82</span></a>
+      <a href="83.html"><span>83</span></a>
+      <a href="84.html"><span>84</span></a>
+      <a href="85.html"><span>85</span></a>
+      <a href="86.html"><span>86</span></a>
+      <a href="87.html"><span>87</span></a>
+      <a href="88.html"><span>88</span></a>
+      <a href="89.html"><span>89</span></a>
+      <a href="90.html"><span>90</span></a>
+      <a href="91.html"><span>91</span></a>
+      <a href="92.html"><span>92</span></a>
+      <a href="93.html"><span>93</span></a>
+      <a href="94.html"><span>94</span></a>
+      <a href="95.html"><span>95</span></a>
+      <a href="96.html"><span>96</span></a>
+      <a href="97.html"><span>97</span></a>
+      <a href="98.html"><span>98</span></a>
+      <a href="99.html"><span>99</span></a>
+      <a href="100.html"><span>100</span></a>
+    </div>
+
+    <div class="footer-note">
+      <i class="fas fa-feather-alt"></i>
+      100 pages · one elegant index
+      <i class="fas fa-feather-alt"></i>
+    </div>
+  </div>
+</body>
+</html>
